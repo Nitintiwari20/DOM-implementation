@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Implementation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .box {
+            width: 120px;
+            height: 120px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+            background-color: white;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <h1 id="heading">Hello</h1>
+
+    <!-- Four Boxes -->
+    <div class="box-container">
+        <div class="box" id="red">Red</div>
+        <div class="box" id="blue">Blue</div>
+        <div class="box" id="green">Green</div>
+        <div class="box" id="yellow">Yellow</div>
+    </div>
+
+    <!-- Input + Button -->
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button id="greetBtn">Greet</button>
+
+    <script>
+        // Change Greeting Text
+        document.getElementById("greetBtn").addEventListener("click", function () {
+            let name = document.getElementById("nameInput").value;
+            let heading = document.getElementById("heading");
+
+            if (name.trim() !== "") {
+                heading.textContent = "Hello, " + name;
+            } else {
+                heading.textContent = "Hello";
+            }
+        });
+
+        // Change Box Colors Using DOM
+        document.getElementById("red").addEventListener("click", function () {
+            this.style.backgroundColor = "red";
+        });
+
+        document.getElementById("blue").addEventListener("click", function () {
+            this.style.backgroundColor = "blue";
+        });
+
+        document.getElementById("green").addEventListener("click", function () {
+            this.style.backgroundColor = "green";
+        });
+
+        document.getElementById("yellow").addEventListener("click", function () {
+            this.style.backgroundColor = "yellow";
+        });
+    </script>
+
+</body>
+</html>
